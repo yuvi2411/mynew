@@ -11,7 +11,6 @@ export class ObseerveserviceService {
   observablemsg=this.shareddata.asObservable()
   value=0
   getdat(data:number){
-    
-    this.shareddata.next(data +this.value++)
+      this.shareddata.next(data +this.value++)
   }
 }
