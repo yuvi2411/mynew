@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApicompComponent } from './compfile/apicomp/apicomp.component';
 import { ObscompComponent } from './compfile/obscomp/obscomp.component';
+import { CustomdirectiveComponent } from './compfile/customdirective/customdirective.component';
+import { DataSdirectDirective } from './compfile/customdirective/data-sdirect.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ApicompComponent,
-    ObscompComponent
+    ObscompComponent,
+    CustomdirectiveComponent,
+    DataSdirectDirective
   ],
   imports: [
     BrowserModule,
