@@ -1,0 +1,26 @@
+<div *ngIf="bookdetails;else displaythispage">
+    <table   class="table arrange"*ngFor="let item of data">
+        <tr  class="table-primary">
+           <th>Title</th>
+           <th>Edit</th>
+        </tr>
+        <tr  class="table-primary">
+            <td>{{item.title}}</td>
+            <td><button (click)="edit(item)">Edit</button></td>
+        </tr>
+    </table>
+</div>
+<ng-template #displaythispage>
+   
+
+ <div class="card" style="width:70rem;">
+        <div class="card-body">
+        
+            <input type="text"  [(ngModel)]="childdata.title"  >
+         <input type="text"[(ngModel)]="childdata.price">
+       
+         <button class="btn btn-primary" (click)="save()" >save changes</button>
+         
+        </div>
+      </div>
+</ng-template>

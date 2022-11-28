@@ -11,9 +11,7 @@ export class ApicompComponent implements OnInit {
   constructor(private recceiveserve:ApiserveService) { }
  
   ngOnInit(): void {
-    this.recceiveserve.getdata("https://api.publicapis.org/entries").subscribe((data)=>{
-     console.log(data)
-  });
-  }
+ 
 
+}
 }

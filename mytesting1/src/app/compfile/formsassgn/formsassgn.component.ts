@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formsassgn',
@@ -12,17 +13,24 @@ export class FormsassgnComponent implements OnInit {
   ngOnInit(): void {
  
  }
- userdetails={
-  FirstName:"",
-  LastName:"",
-  Age:"",
-  Email:"",
-  Password:"",
-  ConfirmPassword:""
+//  userdetails={
+//   FirstName:"",
+//   LastName:"",
+//   Age:"",
+//   Email:"",
+//   Password:"",
+//   ConfirmPassword:""
 
-}
-submit(received:any){
-  console.log(received)
+// }
+// submit(received:any){
+//   console.log(received)
+// }
+ loginForm = new FormGroup({
+  username: new FormControl('', Validators.required),
+  password: new FormControl('', Validators.required)
+});
+login(){
+  
 }
  }
 

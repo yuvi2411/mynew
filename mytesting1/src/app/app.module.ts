@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +9,14 @@ import { ObscompComponent } from './compfile/obscomp/obscomp.component';
 import { CustomdirectiveComponent } from './compfile/customdirective/customdirective.component';
 import { DataSdirectDirective } from './compfile/customdirective/data-sdirect.directive';
 import { FormsassgnComponent } from './compfile/formsassgn/formsassgn.component';
-import { FormsModule } from '@angular/forms';
+import{FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { WishComponent } from './compfile/wish/wish.component';
+import { LoginBookComponent } from './compfile/login-book/login-book.component';
+import { TokenApiInterceptor } from './interceptors/token-api.interceptor';
+import { BookAssgnComponent } from './compfile/book-assgn/book-assgn.component';
+import { LoginpageComponent } from './compfile/loginpage/loginpage.component';
+import { HomePageComponent } from './compfile/home-page/home-page.component';
+import { LazyModule } from './lazy/lazy.module';
 
 @NgModule({
   declarations: [
@@ -18,15 +25,25 @@ import { FormsModule } from '@angular/forms';
     ObscompComponent,
     CustomdirectiveComponent,
     DataSdirectDirective,
-    FormsassgnComponent
+    FormsassgnComponent,
+    WishComponent,
+    LoginBookComponent,
+    BookAssgnComponent,
+    LoginpageComponent,
+    HomePageComponent,
+  
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    LazyModule
+   
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenApiInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,17 @@
+<form [formGroup]="mylogin" (ngSubmit)="mylogin">
+    <div>
+        <input type="text" formControlName="username" placeholder="UserName" required>
+    </div>
+    <div class="errormsg">
+        <small *ngIf="mylogin.touched && mylogin.invalid">Enter-Username</small>
+    </div>
+    <div>
+        <input type="text" formControlName="password" placeholder="Password" required>
+    </div>
+    <div class="errormsg">
+        <small *ngIf="mylogin.touched && mylogin.invalid ">Enter-Password</small>
+    </div>
+    <div>
+        <button type="click"class="btn btn-primary">Login</button>
+    </div>
+</form>
