@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mytesting1';
+
+  myfunction(){
+    console.log("data")
+  }
+
+ngOnInit(){
+  this.myfunction()
+
 }
+
+myfunction$ = new Observable((x)=>{
+  console.log("apidata")
+  
+})
+
+}
+
+

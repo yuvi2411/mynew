@@ -8,6 +8,8 @@ import { ApicompComponent } from './compfile/apicomp/apicomp.component';
 import { ObscompComponent } from './compfile/obscomp/obscomp.component';
 import { CustomdirectiveComponent } from './compfile/customdirective/customdirective.component';
 import { DataSdirectDirective } from './compfile/customdirective/data-sdirect.directive';
+import { FormsassgnComponent } from './compfile/formsassgn/formsassgn.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { DataSdirectDirective } from './compfile/customdirective/data-sdirect.di
     ApicompComponent,
     ObscompComponent,
     CustomdirectiveComponent,
-    DataSdirectDirective
+    DataSdirectDirective,
+    FormsassgnComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

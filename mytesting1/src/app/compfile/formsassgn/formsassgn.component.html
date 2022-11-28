@@ -1,0 +1,55 @@
+<form #login="ngForm" (ngSubmit)="submit(login.value)">
+    <div>
+       <input class="form-control" type="text" #firstName="ngModel" required  [(ngModel)]="userdetails.FirstName"   name="FirstName" placeholder="firstname" required>
+       <div  class ="error-msg"*ngIf="(firstName.touched ||  login.submitted) && firstName.errors?.['required'] " >
+            FirstName is Required
+       </div>
+    </div>
+    <div>
+        <input  class="form-control" type="text" #lastname="ngModel"  [(ngModel)]="userdetails.LastName"name="LastName" placeholder="LastName" required>
+    </div>
+    <div  class ="error-msg"*ngIf="(lastname.touched || login.submitted) && lastname.errors?.['required'] " >
+        lastname is Required
+   </div>
+     
+     <div>
+        <input class="form-control"  type="number"   #age="ngModel"    name="Age"[(ngModel)]="userdetails.Age" placeholder="Age" required>
+     </div>
+     <div  class ="error-msg"*ngIf="(age.touched || login.submitted) && age.errors?.['required'] " >
+        age is Required
+   </div>
+
+     <div>
+        <input class="form-control" type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" #email="ngModel"  name="Email" [(ngModel)]="userdetails.Email" placeholder="email" required>
+     </div>
+     <div  class ="error-msg"*ngIf="(email.touched ||  login.submitted) && email.errors?.['required'] " >
+        email is Required
+   </div>
+   <div  class ="error-msg"*ngIf="(email.touched || login.submitted) && email.errors?.['pattern'] " >
+    Enter your valid email
+</div>
+   
+     <div>
+        <input  class="form-control" type="password" #password="ngModel"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  name="Password" [(ngModel)]="userdetails.Password"placeholder="password"required>
+     </div>
+     <div  class ="error-msg"*ngIf="(password.touched || login.submitted) && password.errors?.['required'] " >
+        Password is Required
+   </div>
+   <div  class ="error-msg"*ngIf="(password.touched || login.submitted) && password.errors?.['pattern'] " >
+    Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters
+</div>
+     <div>
+        <input class="form-control" type="password"  #confirmPassword="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  name="ConfirmPassword"  [(ngModel)]="userdetails.ConfirmPassword"placeholder="ConfirmPassword" required>
+     </div>
+     <div  class ="error-msg"*ngIf="(confirmPassword.touched || login.submitted) && confirmPassword.errors?.['required'] " >
+        ConfirmPassword is Required
+   </div> 
+   <div  class ="error-msg"*ngIf="(confirmPassword.touched || login.submitted) && confirmPassword.value !== password.value" >
+   confirm password and password must be same
+</div> 
+<div>
+    <button type="submit">submit</button>
+</div>
+
+    
+</form>
